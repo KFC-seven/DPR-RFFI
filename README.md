@@ -18,7 +18,7 @@ The release uses the same names and definitions as the paper.
 
   DPR computes the distance from a received feature to each global reference set and divides the low-impact distance by the high-impact distance. The global low-impact set retains a nonempty subset for every enrolled transmitter, while the score itself does not require a candidate-class prediction.
 
-- **Correlation-Calibrated Assessment (CCA)** computes the Spearman rank correlation between DPR and five-neighbor rejection scores on source validation data. The correlation is clipped to \([0,1]\) and used as one deployment-level DPR weight; undefined correlations fall back to 0.50. CCA therefore balances DPR and nearest-neighbor evidence without target-domain data or manual weight tuning.
+- **Concordance-Controlled Assessment (CCA)** computes the Spearman rank correlation between DPR and five-neighbor rejection scores on source validation data. The coefficient is the constrained projection of centered validation-rank vectors onto \([0,1]\), derived in Proposition 2 of the paper. CCA therefore balances DPR and nearest-neighbor evidence without target-domain data or manual weight tuning.
 
 - Accepted samples are identified by five-neighbor cosine voting. The rejection threshold is calibrated to a source-validation false-rejection budget of 0.03.
 
